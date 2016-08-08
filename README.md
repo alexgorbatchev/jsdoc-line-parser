@@ -4,9 +4,9 @@
 ![Downloads](https://img.shields.io/npm/dm/jsdoc-line-parser.svg)
 ![Version](https://img.shields.io/npm/v/jsdoc-line-parser.svg)
 
-A basic JSDoc line parser.
+A basic JSDoc line parser that could be used to parse a single line of JSDoc documentation.
 
-This module could be used to parse a single line of JSDoc documentation.
+**If you want to add more tag specific functionality, PRs are welcomed!**
 
 ## Installation
 
@@ -34,7 +34,7 @@ This plugin is **not meant** to be a comprehensive implementation of JSDoc. The 
 
 The following constructs are supported:
 
-### @version
+### @param
 * name only
   `@param somebody`
 * name and type
@@ -47,7 +47,7 @@ The following constructs are supported:
   `@param somebody - Somebody's name.`
 * name, type, and description, with a hyphen before the description
   `@param {string} somebody - Somebody's name.`
-* documenting parameter\'s properties
+* documenting parameter's properties
   `@param {string} employee.name - The name of the employee.`
 * documenting properties of values in an array
   `@param {string} employees[].name - The name of an employee.`
@@ -71,7 +71,6 @@ The following constructs are supported:
 ### @returns
 * type only
   `@returns {Array}`
-
 * type and description, with a hyphen before the description
   `@returns {Array} - Somebody's name.`
 
