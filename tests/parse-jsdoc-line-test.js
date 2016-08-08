@@ -1,9 +1,8 @@
 import { expect } from 'chai';
 import parseJSDocLine from '../parse-jsdoc-line';
+import iterm2ClearScrollback from 'iterm2-clear-scrollback';
 
-// clear iTerm2 console scroll back
-// https://www.iterm2.com/documentation-escape-codes.html
-process.stdout.write('\u001b]1337;ClearScrollback\u0007');
+iterm2ClearScrollback();
 
 describe('parse-jsdoc-line', () => {
   describe('@param', () => {
