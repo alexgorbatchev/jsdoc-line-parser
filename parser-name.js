@@ -2,9 +2,13 @@ import XRegExp from 'xregexp';
 import merge from 'lodash.merge';
 import balancedMatch from 'balanced-match';
 
-export default function nameParser(string, position) {
+export default function nameParser(string, position, currentResults) {
   const results = {};
   let fullNameMatch, defaultValueMatch;
+
+  // if (currentResults.description) {
+  //   return;
+  // }
 
   if (string[position] === '[') {
     fullNameMatch = balancedMatch('[', ']', string.substr(position));

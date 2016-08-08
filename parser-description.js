@@ -16,7 +16,7 @@ export default function descriptionParser(string, position, currentResults) {
   }
 
   return {
-    lastIndex: position + match.length,
+    lastIndex: position + match[0].length,
     results: {
       description: match[1]
     }

@@ -1,26 +1,31 @@
-# jsdoc-remarkable
+# jsdoc-line-parser
 
 [![GratiPay](https://img.shields.io/gratipay/user/alexgorbatchev.svg)](https://gratipay.com/alexgorbatchev/)
-![Downloads](https://img.shields.io/npm/dm/jsdoc-remarkable.svg)
-![Version](https://img.shields.io/npm/v/jsdoc-remarkable.svg)
+![Downloads](https://img.shields.io/npm/dm/jsdoc-line-parser.svg)
+![Version](https://img.shields.io/npm/v/jsdoc-line-parser.svg)
 
-Plugin for [Remarkable Markdown parser](https://github.com/jonschlinkert/remarkable) that enables basic JSDoc.
+A basic JSDoc line parser.
+
+This module could be used to parse a single line of JSDoc documentation.
 
 ## Installation
 
 ```
-npm install --save-dev jsdoc-remarkable
+npm install --save-dev jsdoc-line-parser
 ```
 
 ## Usage
 
-```
-import jsdoc from 'jsdoc-remarkable';
-import Remarkable from 'remarkable';
+The module exports one function that returns an object. For specific results, please see the test file.
 
-const markdown = new Remarkable();
-markdown.use(jsdoc());
-markdown.render(...);
+```
+import parseJSDocLine from 'jsdoc-line-parser';
+parseJSDocLine(...);
+
+// {
+//   tag: '...',
+//   ...
+// }
 ```
 
 ## JSDoc Support
@@ -29,44 +34,50 @@ This plugin is **not meant** to be a comprehensive implementation of JSDoc. The 
 
 The following constructs are supported:
 
-### @param
-
-```
-@param paramName {Type1|Type2} - Param description.
-```
+### @version
+* name only
+  `@param somebody`
+* name and type
+  `@param {string} somebody`
+* name and description
+  `@param somebody Somebody's name.`
+* name, type, and description
+  `@param {string} somebody Somebody's name.`
+* name and description, with a hyphen before the description
+  `@param somebody - Somebody's name.`
+* name, type, and description, with a hyphen before the description
+  `@param {string} somebody - Somebody's name.`
+* documenting parameter\'s properties
+  `@param {string} employee.name - The name of the employee.`
+* documenting properties of values in an array
+  `@param {string} employees[].name - The name of an employee.`
+* an optional parameter (using JSDoc syntax)
+  `@param {string} [somebody] - Somebody's name.`
+* an optional parameter (using Google Closure Compiler syntax)
+  `@param {string=} somebody - Somebody's name.`
+* an optional parameter and default value
+  `@param {string} [somebody=John Doe] - Somebody's name.`
+* allows one type OR another type (type union)
+  `@param {(string|string[])} [somebody=John Doe] - Somebody's name, or an array of names.`
+* allows any type
+  `@param {*} somebody - Whatever you want.`
+* allows a parameter to be repeated
+  `@param {...number} num - A positive or negative number.`
 
 ### @method
+* method name only
+  `@method methodName`
 
-```
-@method methodName
-@param paramName {Type1|Type2} - Param description.
+### @returns
+* type only
+  `@returns {Array}`
 
-This is method description.
-```
+* type and description, with a hyphen before the description
+  `@returns {Array} - Somebody's name.`
 
-### @property
-
-```
-@property propName {Type1|Type2} - Property description.
-```
-
-### @event
-
-```
-@event eventName
-@param paramName {Type1|Type2} - Param description.
-
-This is event description.
-```
-
-### @action
-
-```
-@action actionName
-@param paramName {Type1|Type2} - Param description.
-
-This is action description.
-```
+### @version
+* complex version number
+  `@version 1.2.3-alpha3`
 
 ## License
 

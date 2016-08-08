@@ -4,6 +4,7 @@ import tagNameParser from './parser-tag-name';
 import typeParser from './parser-type';
 import descriptionParser from './parser-description';
 import nameParser from './parser-name';
+import valueParser from './parser-value';
 
 const parsers = [];
 
@@ -33,6 +34,7 @@ export default function parseJSDocLine(string, opts) {
   let results = {};
   let parsers = [
     tagNameParser,
+    valueParser,
     typeParser,
     nameParser,
     descriptionParser,
@@ -47,8 +49,6 @@ export default function parseJSDocLine(string, opts) {
       merge(results, true, value.results);
       irregularCharacters.lastIndex = value.lastIndex;
     }
-
-    // console.log(char, irregularCharacters.lastIndex)
   }
 
   return results;
