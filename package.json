@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-line-parser",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A basic JSDoc line parser that could be used to parse a single line of JSDoc documentation.",
   "main": "lib/parse-jsdoc-line.js",
   "files": [
