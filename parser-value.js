@@ -1,5 +1,3 @@
-import XRegExp from 'xregexp';
-
 const VALUE_TAGS = [
   'version',
   'author',

@@ -1,7 +1,7 @@
 {
   "name": "jsdoc-line-parser",
   "version": "0.0.0",
-  "description": "",
+  "description": "A basic JSDoc line parser that could be used to parse a single line of JSDoc documentation.",
   "main": "lib/parse-jsdoc-line.js",
   "files": [
     "lib"
@@ -13,11 +13,8 @@
   },
   "keywords": [
     "jsdoc",
-    "remarkable",
     "parse",
-    "parser",
-    "plugin",
-    "markdown"
+    "parser"
   ],
   "author": {
     "name": "Alex Gorbatchev",
@@ -39,7 +36,6 @@
   },
   "dependencies": {
     "balanced-match": "^0.4.2",
-    "lodash.merge": "^4.5.1",
-    "xregexp": "^3.1.1"
+    "lodash.merge": "^4.5.1"
   }
 }

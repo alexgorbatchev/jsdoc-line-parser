@@ -1,5 +1,3 @@
-import XRegExp from 'xregexp';
-
 export default function descriptionParser(string, position, currentResults) {
   let match;
 

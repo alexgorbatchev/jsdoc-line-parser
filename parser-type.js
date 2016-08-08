@@ -1,5 +1,3 @@
-import XRegExp from 'xregexp';
-import merge from 'lodash.merge';
 import balancedMatch from 'balanced-match';
 
 export default function typeParser(string, position) {
